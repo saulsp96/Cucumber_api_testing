@@ -7,12 +7,13 @@ $url_base = "http://3.212.6.186:3000/";
 $token;
 $id_info;
 $body;
+$front;
+$back;
 $user_full = 'creditario-full1@gmail.com';
 $password_full = 'creditario123';
 
 Given("The user gets token") do
 $token =  RestClient.post $url_base + 'api/login', {'email' => $user_full,'password' => $password_full }.to_json, {content_type: :json, accept: :json}
-puts "Login successful!"
 $token = $token[8..136]
 end
 
@@ -21,6 +22,17 @@ $id_info = RestClient.post $url_base + 'api/get_id_information', {:front_id => F
 $id_info.to_json
 $body  = $id_info.body
 $body = JSON.parse($body)
+puts $body.keys
+$front = $body['front']
+# $front = JSON.parse($front)
+puts $front.keys
+# puts $front.keys
+# $back = $body.back
+# $back = $back.to_json
+# puts $back.keys
+##$front = $body['front']
+##$front = JSON.parse(front)
+##puts front
 end
 
 Then("The service returns expected responde") do
