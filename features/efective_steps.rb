@@ -352,7 +352,7 @@ $type = $body['type']
 puts "This is type"
 puts $type
 $index = $index + 1;
-$types[$index] = 'Documento: ' + $documentCounter + " regresa tipo: " + $type;
+$types[$index] = 'Documento: ' + $documentCounter.to_s + " regresa tipo: " + $type.to_s;
 $type = 'nulo';
 end
 
