@@ -23,7 +23,7 @@ $id_info = RestClient.post $url_base + 'api/get_id_information', {:front_id => F
 puts "Service response is OK"
 end
 
-Then("The service returns expected responde") do
+Then("The service returns expected responde2") do
   $id_info.to_json
   $body  = $id_info.body
   $body = JSON.parse($body)
